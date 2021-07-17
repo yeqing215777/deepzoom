@@ -18,7 +18,7 @@ from collections import deque
 logging.basicConfig(level=logging.ERROR, format='%(asctime)s %(message)s')
 logger = logging.getLogger(__name__)
 
-NS_DEEPZOOM = "http://schemas.microsoft.com/deepzoom/2008"
+NS_DEEPZOOM = "http://schemas.microsoft.com/deepzoom/2021"
 
 DEFAULT_RESIZE_FILTER = PIL.Image.ANTIALIAS
 DEFAULT_IMAGE_FORMAT = "jpg"
@@ -37,10 +37,14 @@ IMAGE_FORMATS = {
 }
 
 class MakeStorgePath(object):
-    def __init__(self,basedir=f'release'):
+    def __init__(
+            self,basedir='release'
+    ):
         self.dir = str(uuid.uuid4()).replace('-','')
         self.basedir = basedir
+
     def make(self):
+        """Make uuid level directory."""
         _fdir = os.path.join(self.basedir,self.dir[0])
         _fdir = os.path.join(_fdir,(self.dir[0]+self.dir[1]))
         return os.path.join(_fdir,self.dir)
