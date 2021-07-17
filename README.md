@@ -20,7 +20,7 @@ psd-tools==1.9.17
 # 引入deepzoom
 import deepzoom
 # 输入文件
-_TARGET_FILE = f"2.psb"
+_TARGET_FILE = f"12786608.jpg"
 # deepzoom配置
 creator = deepzoom.ImageCreator(
     tile_size=128,
